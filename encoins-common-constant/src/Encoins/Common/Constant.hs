@@ -1,17 +1,16 @@
-{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE OverloadedStrings #-}
 
 module Encoins.Common.Constant where
 
-import           Data.Text (Text)
-
+import           Data.String (IsString (..))
 
 -- Text constants
 
-space :: Text
+space :: IsString a => a
 space = " "
 
-column :: Text
+column :: IsString a => a
 column = ":"
 
-newLine :: Text
+newLine :: IsString a => a
 newLine = "\n"
