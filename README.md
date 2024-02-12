@@ -17,3 +17,7 @@ For common encoding/decoding operations (e.g. `pack . show`)
 ### encoins-common-constant
 
 For various constants.
+
+### encoins-common-log
+
+For logging

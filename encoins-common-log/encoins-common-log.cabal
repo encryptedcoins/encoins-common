@@ -1,6 +1,6 @@
 cabal-version:      3.0
 
-name:               encoins-common-constant
+name:               encoins-common-log
 version:            0.1.0.0
 author:             Grigory Petrov
                     Vladimir Sinyakov
@@ -25,7 +25,10 @@ library
     import: lang
     hs-source-dirs: src
     exposed-modules:
-      Encoins.Common.Constant
+      Encoins.Common.Log
 
     build-depends:
       base                          >= 4.9 && < 5,
+      katip                                  -any,
+      pretty-simple                          -any,
+      text                                   -any,

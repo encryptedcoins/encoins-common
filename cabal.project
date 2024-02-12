@@ -1,4 +1,5 @@
 packages:
     encoins-common-constant
+    encoins-common-log
     encoins-common-transform
     encoins-common-version
