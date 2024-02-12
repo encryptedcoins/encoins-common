@@ -12,3 +12,6 @@ space = " "
 
 column :: Text
 column = ":"
+
+newLine :: Text
+newLine = "\n"
