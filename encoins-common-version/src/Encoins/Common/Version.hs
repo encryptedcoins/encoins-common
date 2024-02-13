@@ -2,7 +2,6 @@
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE DerivingStrategies #-}
 {-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE TemplateHaskell    #-}
 
 module Encoins.Common.Version
   (
@@ -19,7 +18,6 @@ import           Data.Time                     (UTCTime, defaultTimeLocale,
                                                 formatTime, parseTimeM)
 import           Data.Time.Clock.POSIX         (posixSecondsToUTCTime)
 import           Data.Version                  (Version, showVersion)
-import           Development.GitRev            (gitCommitDate, gitHash)
 import           Encoins.Common.Constant       (space, column)
 import           GHC.Generics                  (Generic)
 import           Prettyprinter                 (Pretty (pretty), annotate,
@@ -36,15 +34,15 @@ data AppVersion = MkAppVersion
   deriving stock (Eq, Show, Generic)
   deriving anyclass (ToJSON, FromJSON)
 
-appVersion :: Version -> AppVersion
-appVersion version = MkAppVersion
+appVersion :: Version -> Text -> String -> AppVersion
+appVersion version commit time = MkAppVersion
   { avVersion = version
-  , avCommit = $(gitHash)
+  , avCommit = commit
   , avDate = fromMaybe (posixSecondsToUTCTime $ toEnum 0) $ parseTimeM
       False
       defaultTimeLocale
       "%a %b %e %T %Y %Z"
-      $(gitCommitDate)
+      time
   }
 
 showAppVersion :: Text -> AppVersion -> Text

@@ -30,7 +30,6 @@ library
     build-depends:
       base                          >= 4.9 && < 5,
       aeson                                  -any,
-      gitrev                                 -any,
       prettyprinter                          -any,
       prettyprinter-ansi-terminal            -any,
       text                                   -any,
