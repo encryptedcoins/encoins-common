@@ -86,6 +86,9 @@ logInfo = logLocM InfoS . ls
 logError :: KatipContext m => Text -> m ()
 logError = logLocM ErrorS . ls
 
+logDebug :: KatipContext m => Text -> m ()
+logDebug = logLocM DebugS . ls
+
 -- The following logs colorize and format Haskell types.
 logWithFormat :: (Show a, KatipContext m) => Severity -> Bool -> a -> m ()
 logWithFormat severity withFormat = logLocM severity . format
@@ -100,6 +103,9 @@ logInfoS = logWithFormat InfoS
 
 logErrorS :: (Show a, KatipContext m) => Bool -> a -> m ()
 logErrorS = logWithFormat ErrorS
+
+logDebugS :: (Show a, KatipContext m) => Bool -> a -> m ()
+logDebugS = logWithFormat DebugS
 
 colorBySeverityFull :: Bool -> Severity -> Text -> Text
 colorBySeverityFull withColor severity msg = case severity of
