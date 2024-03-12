@@ -30,3 +30,5 @@ library
     build-depends:
       base                          >= 4.9 && < 5,
       text                                   -any,
+      aeson                                  -any,
+      bytestring                             -any,
