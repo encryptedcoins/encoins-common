@@ -12,5 +12,8 @@ space = " "
 column :: IsString a => a
 column = ":"
 
+dash :: IsString a => a
+dash = "-"
+
 newLine :: IsString a => a
 newLine = "\n"
